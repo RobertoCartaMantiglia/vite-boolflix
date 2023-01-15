@@ -17,8 +17,8 @@ export default {
             <div class="row">
                 <div class="col-7 pt-3">
                     <label for=""></label>
-                    <input type="text" placeholder="Scrivi il nome di un film">
-                    <button>cerca</button>
+                    <input type="text" placeholder="Scrivi il nome di un film" v-model="store.searchTitle">
+                    <button @click="$emit('search', store.searchTitle)">cerca</button>
                 </div>
             </div>
         </div>
