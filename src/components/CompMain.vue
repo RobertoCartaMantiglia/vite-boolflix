@@ -1,13 +1,16 @@
 
 <script>
 import { store } from '../store'
+import FilmCard from './FilmCard.vue'
 
 export default {
     name: 'CompMain',
+    components: {
+        FilmCard,
+    },
     data() {
         return {
             store,
-
         }
     },
 }
@@ -17,12 +20,8 @@ export default {
     <div class="row">
         <div class="col-12">
             <div>
-                <ul v-for="film in store.filmList">
-                    <li>
-                        {{ film.title }}
-                    </li>
-
-                </ul>
+                <FilmCard v-for="film in store.filmList" :filmTitle="film.title" :originalTitle="film.original_title"
+                    :filmRate="film.vote_average" :filmLang="film.original_language" />
             </div>
         </div>
 

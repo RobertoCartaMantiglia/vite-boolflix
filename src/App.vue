@@ -24,8 +24,8 @@ export default {
         }
       })
         .then((response) => {
-          console.log(response.data.results[0].title);
-          // console.log(response.data.data[0].card_images)
+          console.log(response.data.results);
+          store.filmList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
