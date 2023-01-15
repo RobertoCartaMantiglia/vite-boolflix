@@ -7,18 +7,27 @@ export default {
     data() {
         return {
             store,
+
         }
     },
 }
 </script>
 
 <template>
-    <div>
-        <ul>
-            <li v-for="film in store.filmsList">{{ film.results[0].title }}</li>
-        </ul>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <ul v-for="film in store.filmList">
+                    <li>
+                        {{ film.title }}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 
 </style>
