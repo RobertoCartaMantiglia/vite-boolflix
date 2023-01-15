@@ -1,13 +1,29 @@
 
 <script>
+import { store } from '../store'
+
 export default {
     name: "CompHeader",
+    data() {
+        return {
+            store,
+        }
+    }
 }
 </script>
 <template>
-    <div>
-        <h1>header</h1>
-    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-7 pt-3">
+                    <label for=""></label>
+                    <input type="text" placeholder="Scrivi il nome di un film">
+                    <button>cerca</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
 </template>
 <style lang="scss">
 

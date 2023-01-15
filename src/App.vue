@@ -1,9 +1,15 @@
 <script>
 import CompHeader from './components/CompHeader.vue';
+import { store } from './store';
 
 export default {
   components: {
     CompHeader
+  },
+  data() {
+    return {
+      store,
+    }
   }
 }
 </script>
