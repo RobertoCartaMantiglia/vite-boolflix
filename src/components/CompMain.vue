@@ -21,8 +21,7 @@ export default {
         <div class="col-12">
             <div>
                 <FilmCard v-for="film in store.filmList" :filmTitle="film.title" :originalTitle="film.original_title"
-                    :filmRate="film.vote_average" />
-                <FilmCard v-for="flag in store.countriesFlags" :filmLang="flag.src" />
+                    :filmRate="film.vote_average" :filmLang="film.original_language" />
             </div>
         </div>
 
