@@ -37,12 +37,12 @@ export default {
     getSeries() {
       axios.get(this.apiSeriesUrl, {
         params: {
-          name: store.searchTitle
+          name: store.searchSeries
         }
       })
         .then((response) => {
-          console.log(response.data);
-          store.seriesList = response.data;
+          console.log(response.data.results);
+          store.seriesList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
@@ -60,7 +60,7 @@ export default {
 
 <template>
 
-  <CompHeader @search="getFilm, getSeries" />
+  <CompHeader @search="getFilm" />
   <CompMain />
 
 </template>
