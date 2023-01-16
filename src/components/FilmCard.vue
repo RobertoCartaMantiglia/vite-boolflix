@@ -1,5 +1,7 @@
 2
 <script>
+import { store } from '../store';
+
 export default {
     name: 'FilmCard',
     props: {
@@ -10,11 +12,19 @@ export default {
     },
     data() {
         return {
-            imageName: "it.png",
+            store
         }
     },
     methods: {
-        getImagePath(imgPath) {
+        getImagePath(filmLanguage) {
+            let flags = [
+                "de", "en", "es", "us", "it", "fr"
+            ];
+            console.log(filmLanguage);
+            let imgPath = "../assets/img/en.png";
+            if (flags.includes(filmLanguage)) {
+                imgPath = "../assets/img/" + filmLanguage + ".png";
+            }
             return new URL(imgPath, import.meta.url).href;
         }
     },
@@ -25,7 +35,7 @@ export default {
         <ul>
             <li>
                 {{ filmTitle }} - {{ filmRate }} - {{ originalTitle }}
-                <img :src="getImagePath(`../assets/img/${this.imageName}`)" alt="#">
+                <img :src="getImagePath(filmLang)" alt="#">
             </li>
         </ul>
     </div>
