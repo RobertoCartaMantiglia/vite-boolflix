@@ -10,38 +10,12 @@ export default {
     },
     data() {
         return {
-            // countriesFlags: [
-            //     {
-            //         name: "France",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/fr.png"
-            //     },
-            //     {
-            //         name: "Germany",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/de.png"
-            //     },
-            //     {
-            //         name: "Italy",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/it.png"
-            //     },
-            //     {
-            //         name: "Spain",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/es.png"
-            //     },
-            //     {
-            //         name: "UK",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/gb.png"
-            //     },
-            //     {
-            //         name: "USA",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/us.png"
-            //     },
-            //     {
-            //         name: "Spain",
-            //         src: "http://flags.fmcdn.net/data/flags/mini/es.png"
-            //     },
-
-            // ]
-
+            imageName: "it.png",
+        }
+    },
+    methods: {
+        getImagePath(imgPath) {
+            return new URL(imgPath, import.meta.url).href;
         }
     },
 }
@@ -50,7 +24,8 @@ export default {
     <div>
         <ul>
             <li>
-                {{ filmTitle }} - {{ filmRate }} - {{ filmLang }} - {{ originalTitle }}
+                {{ filmTitle }} - {{ filmRate }} - {{ originalTitle }}
+                <img :src="getImagePath(`../assets/img/${this.imageName}`)" alt="#">
             </li>
         </ul>
     </div>
