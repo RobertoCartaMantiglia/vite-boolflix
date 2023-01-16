@@ -20,5 +20,7 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
-
+ul {
+    list-style-type: none;
+}
 </style>
