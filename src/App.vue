@@ -13,7 +13,8 @@ export default {
     return {
       store,
       apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=98ee13024efa35418c861d49be88100b&query=ritorno+al+futuro',
-      apiKey: '',
+      apiKey: '98ee13024efa35418c861d49be88100b',
+      apiSeriesUrl: 'https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs'
     }
   },
   methods: {
@@ -33,16 +34,33 @@ export default {
         .finally(function () {
         });
     },
+    getSeries() {
+      axios.get(this.apiSeriesUrl, {
+        params: {
+          name: store.searchTitle
+        }
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.seriesList = response.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+        });
+    },
   },
   created() {
-    this.getFilm()
+    this.getFilm();
+    this.getSeries()
   },
 }
 </script>
 
 <template>
 
-  <CompHeader @search="getFilm" />
+  <CompHeader @search="getFilm, getSeries" />
   <CompMain />
 
 </template>
