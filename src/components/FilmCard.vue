@@ -9,6 +9,9 @@ export default {
         filmLang: 'string',
         filmRate: 'number',
         originalTitle: 'string',
+        serieTitle: 'string',
+        serieOriginalTitle: 'string',
+        serieRate: 'number',
     },
     data() {
         return {
@@ -35,6 +38,10 @@ export default {
         <ul>
             <li>
                 {{ filmTitle }} - {{ filmRate }} - {{ originalTitle }}
+                <img :src="getImagePath(filmLang)" alt="#">
+            </li>
+            <li>
+                {{ serieTitle }} - {{ serieRate }} - {{ serieOriginalTitle }}
                 <img :src="getImagePath(filmLang)" alt="#">
             </li>
         </ul>

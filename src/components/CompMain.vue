@@ -23,6 +23,11 @@ export default {
                 <FilmCard v-for="film in store.filmList" :filmTitle="film.title" :originalTitle="film.original_title"
                     :filmRate="film.vote_average" :filmLang="film.original_language" />
             </div>
+            <div>
+                <FilmCard v-for="serie in store.seriesList" :serieTitle="serie.name"
+                    :serieOriginalTitle="serie.original_name" :serieRate="serie.vote_average"
+                    :filmLang="serie.original_language" />
+            </div>
         </div>
 
     </div>

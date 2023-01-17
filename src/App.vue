@@ -12,22 +12,27 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=98ee13024efa35418c861d49be88100b&query=ritorno+al+futuro',
+      apiUrl: 'https://api.themoviedb.org/3/search/',
       apiKey: '98ee13024efa35418c861d49be88100b',
-      apiSeriesUrl: 'https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs'
+      // apiSeriesUrl: 'https://api.themoviedb.org/3/search/'
     }
   },
   methods: {
-    getFilm() {
+    searchFilmOrSeries(apiType, searchTitle) {
       axios.get(this.apiUrl, {
         params: {
-          query: store.searchTitle,
-          key: this.apiKey
+          query: searchTitle,
+          key: this.apiKey,
+          api_Type: apiType
         }
       })
         .then((response) => {
           console.log(response.data.results);
-          store.filmList = response.data.results;
+          if (apiType === 'movie') {
+            this.store.filmList = response.data.results;
+          } else {
+            this.store.seriesList = response.data.results;
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -35,36 +40,38 @@ export default {
         .finally(function () {
         });
     },
-    getSeries() {
-      axios.get(this.apiSeriesUrl, {
-        params: {
-          query: store.searchSeries
-        }
-      })
-        .then((response) => {
-          console.log(response.data.results);
-          store.seriesList = response.data.results;
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .finally(function () {
-        });
-    },
+    getMoviesOrSeries(searchTitle) {
+      this.searchFilmOrSeries('movie', searchTitle);
+      this.searchFilmOrSeries('tv', searchTitle);
+
+    }    // getSeries() {
+    //   axios.get(this.apiSeriesUrl, {
+    //     params: {
+    //       query: store.searchSeries
+    //     }
+    //   })
+    //     .then((response) => {
+    //       console.log(response.data.results);
+    //       store.seriesList = response.data.results;
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     })
+    //     .finally(function () {
+    //     });
+    // },
   },
   created() {
-    this.getFilm();
-    this.getSeries()
+    this.getMoviesOrSeries();
+    // this.getSeries()
   },
-  computed() {
 
-  }
 }
 </script>
 
 <template>
 
-  <CompHeader @search="getFilm" />
+  <CompHeader @search="getMoviesOrSeries" />
   <CompMain />
 
 </template>
