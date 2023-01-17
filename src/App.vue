@@ -21,7 +21,8 @@ export default {
     getFilm() {
       axios.get(this.apiUrl, {
         params: {
-          query: store.searchTitle
+          query: store.searchTitle,
+          key: this.apiKey
         }
       })
         .then((response) => {
@@ -37,7 +38,7 @@ export default {
     getSeries() {
       axios.get(this.apiSeriesUrl, {
         params: {
-          name: store.searchSeries
+          query: store.searchSeries
         }
       })
         .then((response) => {
@@ -55,6 +56,9 @@ export default {
     this.getFilm();
     this.getSeries()
   },
+  computed() {
+
+  }
 }
 </script>
 
