@@ -14,7 +14,6 @@ export default {
       store,
       apiUrl: 'https://api.themoviedb.org/3/search/',
       apiKey: '98ee13024efa35418c861d49be88100b',
-      // apiSeriesUrl: 'https://api.themoviedb.org/3/search/'
     }
   },
   methods: {

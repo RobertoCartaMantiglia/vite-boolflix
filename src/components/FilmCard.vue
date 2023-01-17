@@ -12,6 +12,7 @@ export default {
         serieTitle: 'string',
         serieOriginalTitle: 'string',
         serieRate: 'number',
+        serieLang: 'string'
     },
     data() {
         return {
@@ -34,21 +35,27 @@ export default {
 }
 </script>
 <template>
-    <div>
+    <div class="col-2 border">
         <ul>
             <li>
-                {{ filmTitle }} - {{ filmRate }} - {{ originalTitle }}
+                <h3> {{ filmTitle }} </h3>
+                <p>({{ filmRate }})</p>
+                <p> {{ originalTitle }}</p>
+                <h3> {{ serieTitle }} </h3>
+                <p>({{ serieRate }})</p>
+                <p>{{ serieOriginalTitle }}</p>
                 <img :src="getImagePath(filmLang)" alt="#">
             </li>
-            <li>
-                {{ serieTitle }} - {{ serieRate }} - {{ serieOriginalTitle }}
-                <img :src="getImagePath(filmLang)" alt="#">
-            </li>
+
         </ul>
     </div>
 </template>
 <style lang="scss" scoped>
 ul {
     list-style-type: none;
+}
+
+li {
+    font-size: 0.9rem;
 }
 </style>
