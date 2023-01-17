@@ -19,11 +19,10 @@ export default {
   },
   methods: {
     searchFilmOrSeries(apiType, searchTitle) {
-      axios.get(this.apiUrl, {
+      axios.get(this.apiUrl + apiType, {
         params: {
           query: searchTitle,
-          key: this.apiKey,
-          api_Type: apiType
+          api_key: this.apiKey
         }
       })
         .then((response) => {
@@ -44,26 +43,7 @@ export default {
       this.searchFilmOrSeries('movie', searchTitle);
       this.searchFilmOrSeries('tv', searchTitle);
 
-    }    // getSeries() {
-    //   axios.get(this.apiSeriesUrl, {
-    //     params: {
-    //       query: store.searchSeries
-    //     }
-    //   })
-    //     .then((response) => {
-    //       console.log(response.data.results);
-    //       store.seriesList = response.data.results;
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     })
-    //     .finally(function () {
-    //     });
-    // },
-  },
-  created() {
-    this.getMoviesOrSeries();
-    // this.getSeries()
+    }
   },
 
 }
