@@ -21,7 +21,7 @@ export default {
       axios.get(this.apiUrl + apiType, {
         params: {
           query: searchTitle,
-          api_key: this.apiKey
+          api_key: this.apiKey,
         }
       })
         .then((response) => {
@@ -41,7 +41,6 @@ export default {
     getMoviesOrSeries(searchTitle) {
       this.searchFilmOrSeries('movie', searchTitle);
       this.searchFilmOrSeries('tv', searchTitle);
-
     }
   },
 

@@ -36,13 +36,13 @@ export default {
 </script>
 <template>
     <div class="col-2 border">
-        <ul>
+        <ul class="p-2">
             <li>
                 <h3> {{ filmTitle }} </h3>
-                <p>({{ filmRate }})</p>
+                <p>{{ filmRate }}</p>
                 <p> {{ originalTitle }}</p>
                 <h3> {{ serieTitle }} </h3>
-                <p>({{ serieRate }})</p>
+                <p>{{ serieRate }}</p>
                 <p>{{ serieOriginalTitle }}</p>
                 <img :src="getImagePath(filmLang)" alt="#">
             </li>
